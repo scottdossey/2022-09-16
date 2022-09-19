@@ -1,7 +1,4 @@
 
-let coords = {lat: 33.1581, lng: -117.3506};
-  
-
 function initMap() {
 	let image = {url: "/gojira.png", scaledSize: new google.maps.Size(60,60)};
 	
@@ -14,10 +11,11 @@ function initMap() {
 	let marker = new google.maps.Marker({
 		position: coords,
 		map: map,
-		icon: image 
+		icon: image,
+		animation: google.maps.Animation.BOUNCE
 	});
 	
-	let contentString="<h2>Carlsbad, CA</h2> <p>Enjoy our lovely beaches!</p>";
+	let contentString="<h2>" + city +", " + state + "</h2>";
 	
 	let infoWindow = new google.maps.InfoWindow({
 		content: contentString
@@ -26,7 +24,4 @@ function initMap() {
 	google.maps.event.addListener(marker, 'click', function() {
 		infoWindow.open(map, marker); 
 	});
-	
-	
-	
 }	
